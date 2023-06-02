@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <style>
+        body {
+            background-color: #222;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            -ms-user-select: none;
+            -webkit-user-select: none;
+            user-select: none;
+        }
+
+        .container {
+            padding: 20px;
+            background-color: #222;
+        }
+
+        #bgCol {
+            display: inline-block;
+            padding: 5px;
+            background-color: rgb(39, 39, 43);
+            color: #000;
+            font-weight: 600;
+        }
+
+        #changeCol {
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #555;
+            color: #fff;
+            display: inline-block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        Background color is: <span id="bgCol"></span>
+        <div id="changeCol">Change Color</div>
+    </div>
+    <script>
+        let backgroundColor = ['red', 'green', 'yellow', 'blue', 'violet', 'orange', 'black', 'white'];
+        let i = 0;
+        const bgColElement = document.getElementById("bgCol");
+        const changeColElement = document.getElementById("changeCol");
+
+        function changeBackgroundColor() {
+            i = (i + 1) % backgroundColor.length;
+            document.body.style.backgroundColor = backgroundColor[i];
+            bgColElement.innerHTML = backgroundColor[i];
+            bgColElement.style.color = backgroundColor[i];
+        }
+
+        changeColElement.addEventListener("click", changeBackgroundColor);
+    </script>
+</body>
+
+</html>
